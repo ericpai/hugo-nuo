@@ -1,3 +1,21 @@
 @import 'partials/variables';
 
 /* Override theme styles here */
+.site-footer {
+  display: block;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: $text;
+  font-family: $family-monospace;
+  font-size: $size-7;
+
+  & a {
+    opacity: 0.7;
+    color: $text;
+
+    &:focus,
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
