@@ -1,13 +1,29 @@
 <article class="post-entry">
   <header class="post-header">
     <h3 class="post-title"><a href="{{ .Permalink }}" class="post-link">{{ .Title }}</a></h3>
-    <p class="post-meta">@{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }} · {{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read</p>
+    <p class="post-meta">
+      @{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end
+      }} · {{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read
+    </p>
   </header>
   {{ if isset .Params "cover" }}
-    <img class="post-cover" src="{{ .Params.cover }}" alt="{{ .Title }}" lazyload="on">
+  <img class="post-cover" src="{{ .Params.cover }}" alt="{{ .Title }}" lazyload="on" />
   {{ end }}
   <p class="post-summary">{{ .Summary | plainify | htmlUnescape }}</p>
   <footer class="post-footer">
     <a class="read-more" href="{{ .Permalink }}">Read More →</a>
+    <p class="post-copyright">
+      © {{ if eq now.Year 2017 }}2017{{ else }}2017-{{ now.Year }}{{ end }} {{ .Site.Title }}.
+      Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> with theme
+      <a href="https://github.com/laozhu/hugo-nuo" target="_blank" rel="noopener">Nuo</a>. {{ if and
+      (isset .Site.Params "icp") (ne .Site.Params.ICP "") }}
+    </p>
+
+    <p class="post-copyright">
+      <a href="http://beian.miit.gov.cn/" title="Check ICP info" target="_blank" rel="noopener"
+        >{{ .Site.Params.ICP }}</a
+      >
+    </p>
+    {{ end }}
   </footer>
 </article>
